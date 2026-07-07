@@ -17,14 +17,15 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                echo 'Menjalankan aplikasi...'
-                sh '''
-                    pkill -f "node index.js" || true
-                    nohup node index.js > app.log 2>&1 &
-                '''
-            }
-        }
+              steps {
+                   echo 'Menjalankan aplikasi...'
+                  sh '''
+                  pm2 delete belajar-cicd || true
+                  pm2 start index.js --name belajar-cicd
+                  pm2 save
+                  '''
+    }
+}
     }
 
     post {
