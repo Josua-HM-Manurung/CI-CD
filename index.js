@@ -3,7 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.send('Halo! Ini deployment via Jenkins CI/CD - Versi 3 auto deploy');
+  res.send('Halo! Ini deployment via Jenkins CI/CD - Versi 4 AUTO DEPLOY');
 });
 
 app.listen(PORT, () => {
