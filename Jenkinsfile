@@ -16,14 +16,14 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-              steps {
-                   echo 'Menjalankan aplikasi...'
-                  sh '''
-                  pm2 delete belajar-cicd || true
-                  pm2 start index.js --name belajar-cicd
-                  pm2 save
-                  '''
+stage('Deploy') {
+    steps {
+        echo 'Menjalankan aplikasi...'
+        sh '''
+            sudo systemctl restart belajar-cicd
+            sleep 2
+            sudo systemctl status belajar-cicd --no-pager
+        '''
     }
 }
     }
